@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 450" role="img" aria-labelledby="title desc">
+  <title id="title">Car Services MGH banner</title>
+  <desc id="desc">Rounded blue Car Services MGH logo banner with red car line and phone number 99 448345.</desc>
+  <defs>
+    <radialGradient id="panel" cx="52%" cy="46%" r="72%">
+      <stop offset="0%" stop-color="#083f85" />
+      <stop offset="56%" stop-color="#052b61" />
+      <stop offset="100%" stop-color="#020b22" />
+    </radialGradient>
+    <linearGradient id="red" x1="10%" y1="50%" x2="90%" y2="50%">
+      <stop offset="0%" stop-color="#ff2531" />
+      <stop offset="45%" stop-color="#ff101f" />
+      <stop offset="100%" stop-color="#ff2732" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#01040c" flood-opacity="0.58" />
+    </filter>
+    <filter id="softGlow" x="-20%" y="-80%" width="140%" height="260%">
+      <feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#01040c" flood-opacity="0.52" />
+    </filter>
+  </defs>
+  <rect x="20" y="24" width="1496" height="402" rx="20" fill="url(#panel)" />
+  <path d="M43 426 L1493 426" stroke="#061532" stroke-width="2" opacity="0.75" />
+  <path
+    d="M146 239 C260 205 423 196 518 177 C612 158 642 91 780 76 C942 57 1097 83 1232 127 C1306 151 1382 161 1450 158 C1422 184 1385 194 1331 196 C1378 214 1427 231 1481 251 L1481 282 C1382 261 1269 248 1166 252 C1102 254 1059 265 1025 286 L1015 282 C1057 244 1117 235 1192 241 C1245 246 1286 250 1328 240 C1273 200 1187 164 1092 136 C1000 109 890 91 780 100 C692 108 655 153 593 181 C535 207 431 210 330 221 C252 230 194 235 146 244 Z"
+    fill="url(#red)"
+    filter="url(#softGlow)"
+  />
+  <path
+    d="M626 215 L687 172 C676 191 673 202 676 208 C681 220 704 220 748 220 L938 220 C994 220 1013 216 1023 194 L1029 195 C1025 220 1006 230 952 234 C872 240 762 237 626 238 Z"
+    fill="url(#red)"
+    filter="url(#softGlow)"
+  />
+  <text x="348" y="330" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="300" letter-spacing="11" filter="url(#shadow)">
+    CAR SERVICES
+  </text>
+  <text x="915" y="339" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="700" letter-spacing="4" filter="url(#shadow)">
+    MGH
+  </text>
+  <text x="1042" y="394" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" letter-spacing="5" filter="url(#shadow)">
+    99 448345
+  </text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#11201f"/>
+  <path d="M0 690h1200v210H0z" fill="#1f2d31"/>
+  <path d="M160 250h820l120 180v260H120V320c0-38 22-70 40-70z" fill="#f8fafc" opacity=".9"/>
+  <path d="M238 370h612l72 112H210z" fill="#dbeafe"/>
+  <circle cx="330" cy="700" r="92" fill="#101827"/>
+  <circle cx="330" cy="700" r="42" fill="#cbd5e1"/>
+  <circle cx="850" cy="700" r="92" fill="#101827"/>
+  <circle cx="850" cy="700" r="42" fill="#cbd5e1"/>
+  <path d="M140 590h920" stroke="#0f766e" stroke-width="38"/>
+  <path d="M90 185h1020" stroke="#f5b942" stroke-width="12"/>
+  <path d="M210 145h180v80H210zM430 145h180v80H430zM650 145h180v80H650z" fill="#334155"/>
+  <text x="120" y="115" fill="#f8fafc" font-family="Arial" font-size="54" font-weight="700">GarageFlow</text>
+</svg>

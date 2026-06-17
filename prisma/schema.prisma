@@ -1,0 +1,248 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MECHANIC
+}
+
+enum JobStatus {
+  PENDING
+  WAITING_FOR_PARTS
+  IN_PROGRESS
+  COMPLETED
+  DELIVERED
+}
+
+enum FuelType {
+  PETROL
+  DIESEL
+  HYBRID
+  ELECTRIC
+  LPG
+  OTHER
+}
+
+enum ReminderStatus {
+  PENDING
+  SENT
+  DISMISSED
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  name         String
+  email        String       @unique
+  passwordHash String       @map("password_hash")
+  role         Role         @default(MECHANIC)
+  hourlyRate   Decimal      @default(35.00) @map("hourly_rate") @db.Decimal(10, 2)
+  active       Boolean      @default(true)
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+  assignedJobs RepairJob[]  @relation("AssignedMechanic")
+  laborEntries LaborEntry[]
+  workItems    WorkItem[]   @relation("AssignedWork")
+
+  @@map("users")
+}
+
+model Customer {
+  id        Int         @id @default(autoincrement())
+  fullName  String      @map("full_name")
+  phone     String
+  email     String?
+  address   String?
+  vatNumber String?     @map("vat_number")
+  notes     String?     @db.Text
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
+  vehicles  Vehicle[]
+  jobs      RepairJob[]
+  invoices  Invoice[]
+
+  @@index([fullName])
+  @@index([phone])
+  @@map("customers")
+}
+
+model Vehicle {
+  id           Int         @id @default(autoincrement())
+  customerId   Int         @map("customer_id")
+  licensePlate String      @unique @map("license_plate")
+  vinNumber    String?     @unique @map("vin_number")
+  make         String
+  model        String
+  year         Int?
+  engineType   String?     @map("engine_type")
+  fuelType     FuelType    @default(PETROL) @map("fuel_type")
+  mileage      Int         @default(0)
+  color        String?
+  notes        String?     @db.Text
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+  customer     Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  jobs         RepairJob[]
+  reminders    Reminder[]
+
+  @@index([make, model])
+  @@map("vehicles")
+}
+
+model RepairJob {
+  id                    Int              @id @default(autoincrement())
+  jobNumber             String           @unique @map("job_number")
+  customerId            Int              @map("customer_id")
+  vehicleId             Int              @map("vehicle_id")
+  assignedMechanicId    Int?             @map("assigned_mechanic_id")
+  dateOpened            DateTime         @default(now()) @map("date_opened")
+  dateCompleted         DateTime?        @map("date_completed")
+  estimatedCompletionAt DateTime?        @map("estimated_completion_at")
+  vehicleReceivedAt     DateTime?        @map("vehicle_received_at")
+  jobCardIssuedAt       DateTime?        @map("job_card_issued_at")
+  serviceMileage        Int?             @map("service_mileage")
+  oilChangeDueMileage   Int?             @map("oil_change_due_mileage")
+  nextServiceDueMileage Int?             @map("next_service_due_mileage")
+  problemDescription    String           @map("problem_description") @db.Text
+  diagnosis             String?          @db.Text
+  mechanicNotes         String?          @map("mechanic_notes") @db.Text
+  internalNotes         String?          @map("internal_notes") @db.Text
+  status                JobStatus        @default(PENDING)
+  createdAt             DateTime         @default(now()) @map("created_at")
+  updatedAt             DateTime         @updatedAt @map("updated_at")
+  customer              Customer         @relation(fields: [customerId], references: [id])
+  vehicle               Vehicle          @relation(fields: [vehicleId], references: [id])
+  assignedMechanic      User?            @relation("AssignedMechanic", fields: [assignedMechanicId], references: [id])
+  laborEntries          LaborEntry[]
+  partsUsed             PartUsed[]
+  serviceItems          JobServiceItem[]
+  invoice               Invoice?
+
+  @@index([status])
+  @@index([dateOpened])
+  @@map("repair_jobs")
+}
+
+model JobServiceItem {
+  id        Int       @id @default(autoincrement())
+  jobId     Int       @map("job_id")
+  itemKey   String    @map("item_key")
+  label     String
+  category  String    @db.VarChar(32)
+  completed Boolean   @default(false)
+  notes     String?   @db.Text
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  job       RepairJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, itemKey])
+  @@index([jobId, category])
+  @@map("job_service_items")
+}
+
+model LaborEntry {
+  id          Int       @id @default(autoincrement())
+  jobId       Int       @map("job_id")
+  mechanicId  Int       @map("mechanic_id")
+  description String
+  hoursWorked Decimal   @map("hours_worked") @db.Decimal(8, 2)
+  hourlyRate  Decimal   @map("hourly_rate") @db.Decimal(10, 2)
+  entryDate   DateTime  @default(now()) @map("entry_date")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  job         RepairJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  mechanic    User      @relation(fields: [mechanicId], references: [id])
+
+  @@index([entryDate])
+  @@map("labor_entries")
+}
+
+model PartUsed {
+  id         Int       @id @default(autoincrement())
+  jobId      Int       @map("job_id")
+  partName   String    @map("part_name")
+  partNumber String?   @map("part_number")
+  quantity   Decimal   @db.Decimal(10, 2)
+  unitPrice  Decimal   @map("unit_price") @db.Decimal(10, 2)
+  supplier   String?
+  createdAt  DateTime  @default(now()) @map("created_at")
+  job        RepairJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([partNumber])
+  @@map("parts_used")
+}
+
+model Invoice {
+  id            Int       @id @default(autoincrement())
+  invoiceNumber String    @unique @map("invoice_number")
+  jobId         Int       @unique @map("job_id")
+  customerId    Int       @map("customer_id")
+  issueDate     DateTime  @default(now()) @map("issue_date")
+  dueDate       DateTime? @map("due_date")
+  laborTotal    Decimal   @map("labor_total") @db.Decimal(10, 2)
+  partsTotal    Decimal   @map("parts_total") @db.Decimal(10, 2)
+  subtotal      Decimal   @db.Decimal(10, 2)
+  vatRate       Decimal   @default(19.00) @map("vat_rate") @db.Decimal(5, 2)
+  vatAmount     Decimal   @map("vat_amount") @db.Decimal(10, 2)
+  grandTotal    Decimal   @map("grand_total") @db.Decimal(10, 2)
+  paid          Boolean   @default(false)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  job           RepairJob @relation(fields: [jobId], references: [id])
+  customer      Customer  @relation(fields: [customerId], references: [id])
+
+  @@index([issueDate])
+  @@map("invoices")
+}
+
+model WorkshopSetting {
+  id                 Int      @id @default(1)
+  companyName        String   @map("company_name")
+  address            String
+  phone              String
+  email              String
+  vatNumber          String   @map("vat_number")
+  registrationNumber String   @map("registration_number")
+  defaultVatRate     Decimal  @default(19.00) @map("default_vat_rate") @db.Decimal(5, 2)
+  logoUrl            String?  @map("logo_url")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  @@map("workshop_settings")
+}
+
+model Reminder {
+  id        Int            @id @default(autoincrement())
+  vehicleId Int            @map("vehicle_id")
+  title     String
+  dueDate   DateTime       @map("due_date")
+  channel   String         @default("email")
+  status    ReminderStatus @default(PENDING)
+  notes     String?        @db.Text
+  createdAt DateTime       @default(now()) @map("created_at")
+  vehicle   Vehicle        @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@index([dueDate, status])
+  @@map("reminders")
+}
+
+model WorkItem {
+  id                 Int       @id @default(autoincrement())
+  title              String
+  description        String?   @db.Text
+  customerName       String?   @map("customer_name")
+  vehiclePlate       String?   @map("vehicle_plate")
+  assignedMechanicId Int?      @map("assigned_mechanic_id")
+  dueDate            DateTime? @map("due_date")
+  completed          Boolean   @default(false)
+  completedAt        DateTime? @map("completed_at")
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @updatedAt @map("updated_at")
+  assignedMechanic   User?     @relation("AssignedWork", fields: [assignedMechanicId], references: [id])
+
+  @@index([completed, dueDate])
+  @@index([assignedMechanicId])
+  @@map("work_items")
+}
