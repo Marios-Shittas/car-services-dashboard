@@ -18,9 +18,9 @@ const vehicleSchema = z.object({
 });
 
 const schema = z.object({
-  fullName: z.string().min(2),
-  phone: z.string().min(3),
-  email: z.string().email().optional().or(z.literal("")),
+  fullName: z.string().min(2, "Add the customer's full name."),
+  phone: z.string().refine((value) => value.replace(/\D/g, "").length >= 8, "Phone number needs at least 8 digits."),
+  email: z.string().email("Email must include @.").optional().or(z.literal("")),
   address: z.string().optional(),
   vatNumber: z.string().optional(),
   notes: z.string().optional(),
@@ -52,13 +52,13 @@ const schema = z.object({
 
   vehicles.forEach((vehicle, index) => {
     if (!vehicle.licensePlate) {
-      ctx.addIssue({ code: "custom", path: ["vehicles", index, "licensePlate"], message: `Car ${index + 1}: license plate is required.` });
+      ctx.addIssue({ code: "custom", path: ["vehicles", index, "licensePlate"], message: `Car ${index + 1}: add the license plate.` });
     }
     if (!vehicle.make) {
-      ctx.addIssue({ code: "custom", path: ["vehicles", index, "make"], message: `Car ${index + 1}: make is required.` });
+      ctx.addIssue({ code: "custom", path: ["vehicles", index, "make"], message: `Car ${index + 1}: add the brand.` });
     }
     if (!vehicle.model) {
-      ctx.addIssue({ code: "custom", path: ["vehicles", index, "model"], message: `Car ${index + 1}: model is required.` });
+      ctx.addIssue({ code: "custom", path: ["vehicles", index, "model"], message: `Car ${index + 1}: add the model.` });
     }
   });
 });

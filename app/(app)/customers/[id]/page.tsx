@@ -57,14 +57,14 @@ export default async function CustomerProfilePage({ params }: { params: Promise<
           <CardHeader><h2 className="font-semibold">Vehicles In This Customer File</h2></CardHeader>
           <CardContent className="overflow-x-auto p-0">
             <Table>
-              <thead><tr><Th>Plate</Th><Th>Vehicle</Th><Th>Mileage</Th><Th>Jobs</Th><Th>Next Reminder</Th></tr></thead>
+              <thead><tr><Th>Plate</Th><Th>Vehicle</Th><Th>Kilometers</Th><Th>Jobs</Th><Th>Next Reminder</Th></tr></thead>
               <tbody>{customer.vehicles.map((vehicle) => {
                 const nextReminder = vehicle.reminders.find((reminder) => reminder.status === "PENDING");
                 return (
                   <tr key={vehicle.id}>
                     <Td><Link className="font-semibold text-primary" href={`/vehicles/${vehicle.id}`}>{vehicle.licensePlate}</Link></Td>
                     <Td>{vehicle.make} {vehicle.model}<p className="text-xs text-muted-foreground">{vehicle.year ?? "-"} · {vehicle.fuelType} · {vehicle.color ?? "No color"}</p></Td>
-                    <Td>{vehicle.mileage.toLocaleString()}</Td>
+                    <Td>{vehicle.mileage.toLocaleString()} km</Td>
                     <Td>{vehicle.jobs.length}</Td>
                     <Td>{nextReminder ? <><p>{nextReminder.title}</p><p className="text-xs text-muted-foreground">{cyDate(nextReminder.dueDate)}</p></> : <span className="text-muted-foreground">-</span>}</Td>
                   </tr>

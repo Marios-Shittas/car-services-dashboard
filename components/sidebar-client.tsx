@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Car, ClipboardList, FileText, Home, LineChart, Menu, PanelLeftClose, PanelLeftOpen, Settings, Users, Wrench, X } from "lucide-react";
+import { Car, ClipboardCheck, ClipboardList, FileText, Home, LineChart, Menu, PanelLeftClose, PanelLeftOpen, Settings, Users, Wrench, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { SignOutButton } from "@/components/sign-out-button";
@@ -14,6 +14,7 @@ const items = [
   { href: "/vehicles", label: "Vehicles", icon: Car, group: "Workshop" },
   { href: "/jobs", label: "Jobs", icon: Wrench, group: "Workshop" },
   { href: "/work", label: "Work", icon: ClipboardList, group: "Workshop" },
+  { href: "/service-card", label: "Service Card", icon: ClipboardCheck, group: "Workshop" },
   { href: "/invoices", label: "Invoices", icon: FileText, group: "Finance" },
   { href: "/reports", label: "Reports", icon: LineChart, group: "Finance" },
   { href: "/settings", label: "Settings", icon: Settings, group: "System" }

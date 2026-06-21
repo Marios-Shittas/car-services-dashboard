@@ -145,8 +145,8 @@ export function JobServiceChecklist({ jobId, vehicleMileage, service, items }: J
           <Input type="datetime-local" value={jobCardIssuedAt} onChange={(event) => setJobCardIssuedAt(event.target.value)} />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-medium text-muted-foreground">Service mileage</label>
-          <Input type="number" value={serviceMileage} onChange={(event) => setServiceMileage(event.target.value)} placeholder="Mileage now" />
+          <label className="mb-1 block text-xs font-medium text-muted-foreground">Service kilometers</label>
+          <Input type="number" value={serviceMileage} onChange={(event) => setServiceMileage(event.target.value)} placeholder="Kilometers now" />
         </div>
       </div>
 

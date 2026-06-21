@@ -41,7 +41,7 @@ export function InvoiceView({ invoice, settings }: InvoiceViewProps) {
       </header>
       <section className="grid grid-cols-2 gap-8 border-b border-slate-200 py-6 text-sm">
         <div><h2 className="mb-2 font-bold">Customer Details</h2><p>{invoice.customer.fullName}</p><p>{invoice.customer.address ?? "-"}</p><p>{invoice.customer.phone}</p><p>VAT {invoice.customer.vatNumber ?? "-"}</p></div>
-        <div><h2 className="mb-2 font-bold">Vehicle Details</h2><p>{invoice.job.vehicle.licensePlate}</p><p>{invoice.job.vehicle.make} {invoice.job.vehicle.model}</p><p>VIN {invoice.job.vehicle.vinNumber ?? "-"}</p><p>Mileage {invoice.job.vehicle.mileage.toLocaleString()} km</p></div>
+        <div><h2 className="mb-2 font-bold">Vehicle Details</h2><p>{invoice.job.vehicle.licensePlate}</p><p>{invoice.job.vehicle.make} {invoice.job.vehicle.model}</p><p>VIN {invoice.job.vehicle.vinNumber ?? "-"}</p><p>Kilometers {invoice.job.vehicle.mileage.toLocaleString()} km</p></div>
       </section>
       <section className="py-6">
         <h2 className="mb-3 font-bold">Labor Breakdown</h2>
