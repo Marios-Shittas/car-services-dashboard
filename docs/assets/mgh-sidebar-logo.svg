@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Car Services MGH logo</title>
+  <desc id="desc">Circular Car Services MGH logo with phone number 99 448345.</desc>
+  <defs>
+    <radialGradient id="disc" cx="50%" cy="43%" r="58%">
+      <stop offset="0%" stop-color="#082f68" />
+      <stop offset="66%" stop-color="#031b3e" />
+      <stop offset="100%" stop-color="#01050c" />
+    </radialGradient>
+    <linearGradient id="road" x1="16%" y1="78%" x2="92%" y2="68%">
+      <stop offset="0%" stop-color="#ff7a1a" />
+      <stop offset="46%" stop-color="#f61422" />
+      <stop offset="100%" stop-color="#ff7a1a" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+    <clipPath id="circleClip">
+      <circle cx="600" cy="600" r="548" />
+    </clipPath>
+  </defs>
+  <rect width="1200" height="1200" fill="#000" />
+  <circle cx="600" cy="600" r="548" fill="url(#disc)" />
+  <g clip-path="url(#circleClip)">
+    <path
+      d="M54 445 C199 406 361 392 450 365 C535 339 555 281 677 261 C803 241 934 268 1056 319 C1110 342 1156 348 1191 350 C1175 369 1133 377 1087 379 C1124 395 1162 410 1200 428 L1200 481 C1101 460 1004 450 914 452 C849 454 824 462 791 483 L782 479 C821 442 872 433 940 438 C995 442 1045 445 1080 436 C1033 397 945 354 856 324 C753 290 668 275 577 282 C488 290 446 335 385 364 C323 393 151 404 54 450 Z"
+      fill="#f91421"
+      filter="url(#shadow)"
+    />
+    <path
+      d="M468 407 L526 368 C519 381 516 393 517 399 C519 411 537 411 568 411 L735 411 C790 411 818 408 828 392 L832 393 C827 415 807 425 748 429 C680 434 589 432 468 432 Z"
+      fill="#f91421"
+    />
+    <path d="M68 654 C95 823 212 1000 402 1085 C653 1198 974 1082 1090 835 C1115 781 1126 720 1128 657 C1092 790 968 821 771 833 C600 843 373 863 172 1004 C128 949 91 854 68 654 Z" fill="url(#road)" />
+    <path d="M148 958 C343 805 570 776 760 759 C940 743 1062 714 1125 623 C1101 765 972 829 760 852 C573 872 410 918 287 1028 C239 1007 192 982 148 958 Z" fill="#061b38" />
+  </g>
+  <text x="132" y="558" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="300" letter-spacing="9">
+    CAR SERVICES
+  </text>
+  <text x="688" y="560" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="140" font-weight="700" letter-spacing="4" filter="url(#shadow)">
+    MGH
+  </text>
+  <text x="321" y="681" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800" letter-spacing="10" filter="url(#shadow)">
+    99 448345
+  </text>
+</svg>
