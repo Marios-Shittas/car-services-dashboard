@@ -26,7 +26,7 @@ export function JobActions({ jobId, mechanics, invoiceId }: { jobId: number; mec
         <h2 className="font-semibold">Add Labor</h2>
         <Input name="description" placeholder="Description" required />
         <div className="grid gap-3 sm:grid-cols-2"><Input name="hoursWorked" type="number" step="0.1" placeholder="Hours" required /><Input name="hourlyRate" type="number" step="0.01" placeholder="Rate" required /></div>
-        <select name="mechanicId" required className="h-10 rounded-md border border-input bg-background px-3 text-sm"><option value="">Mechanic</option>{mechanics.map((mechanic) => <option key={mechanic.id} value={mechanic.id}>{mechanic.name} (€{mechanic.hourlyRate}/h)</option>)}</select>
+        <select name="mechanicId" required className="h-10 rounded-md border border-input bg-background px-3 text-sm"><option value="">Mechanic</option>{mechanics.map((mechanic) => <option key={mechanic.id} value={mechanic.id}>{mechanic.name}</option>)}</select>
         <Button disabled={busy}><Save className="h-4 w-4" /> Add labor</Button>
       </form>
       <form className="grid gap-3 rounded-lg border border-border bg-card p-4" onSubmit={(event) => { event.preventDefault(); post(`/api/jobs/${jobId}/parts`, new FormData(event.currentTarget)); event.currentTarget.reset(); }}>

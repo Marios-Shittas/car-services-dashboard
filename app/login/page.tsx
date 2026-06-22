@@ -1,4 +1,5 @@
 import { getServerSession } from "next-auth";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { BadgeCheck, Clock3, FileText, Gauge, Wrench } from "lucide-react";
 import { authOptions } from "@/lib/auth";
@@ -74,7 +75,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <div className="relative w-full max-w-[410px]">
           <div className="mb-8">
             <div className="mb-7 flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-slate-950 shadow-xl shadow-slate-950/20">
-              <img src="/mgh-sidebar-logo.svg" alt="Car Services MGH" className="h-full w-full object-cover" />
+              <Image src="/mgh-sidebar-logo.svg" alt="Car Services MGH" width={64} height={64} className="h-full w-full object-cover" />
             </div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Staff portal</p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">Welcome back</h2>

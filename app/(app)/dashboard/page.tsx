@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Briefcase, Car, CheckCircle2, FileText, Users } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { eur } from "@/lib/utils";
@@ -43,7 +44,7 @@ export default async function DashboardPage() {
   return (
     <div className="grid gap-6">
       <section className="flex justify-center">
-        <img src="/mgh-banner.svg" alt="Car Services MGH" className="h-auto w-full max-w-6xl object-contain drop-shadow-lg" />
+        <Image src="/mgh-banner.svg" alt="Car Services MGH" width={1200} height={300} priority className="h-auto w-full max-w-6xl object-contain drop-shadow-lg" />
       </section>
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat) => (

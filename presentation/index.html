@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Car Services MGH - Website Presentation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#hero" aria-label="Car Services MGH presentation home">
+        <img src="../public/mgh-sidebar-logo.svg" alt="" />
+        <span>
+          <strong>Car Services MGH</strong>
+          <small>Workshop Management Presentation</small>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav aria-label="Presentation navigation">
+        <a href="#overview">Overview</a>
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#modules">Modules</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Mechanic website presentation</p>
+          <h1>Ένα πλήρες σύστημα διαχείρισης συνεργείου, από πελάτη μέχρι τιμολόγιο.</h1>
+          <p class="lead">
+            Η ιστοσελίδα οργανώνει πελάτες, αυτοκίνητα, job cards, εργασίες, service reminders,
+            invoices και reports σε ένα καθαρό dashboard φτιαγμένο για καθημερινή χρήση στο συνεργείο.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#features">Δες τις λειτουργίες</a>
+            <a class="button secondary" href="#workflow">Δες το workflow</a>
+          </div>
+        </div>
+        <div class="hero-panel reveal delay-1" aria-label="Product summary">
+          <div class="logo-showcase">
+            <img src="../public/mgh-banner.svg" alt="Car Services MGH banner" />
+          </div>
+          <div class="metric-card wide">
+            <span>System</span>
+            <strong>Workshop Management</strong>
+            <small>Customers, vehicles, jobs, invoices, reports</small>
+          </div>
+          <div class="metric-card">
+            <span>Focus</span>
+            <strong>Daily flow</strong>
+            <small>Reception to delivery</small>
+          </div>
+          <div class="metric-card">
+            <span>Output</span>
+            <strong>Print & PDF</strong>
+            <small>Invoices and service cards</small>
+          </div>
+          <div class="screen-card">
+            <div class="screen-header">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="screen-rail"><em></em><em></em><em></em><em></em></div>
+            <div class="screen-grid">
+              <div></div><div></div><div></div><div></div>
+            </div>
+            <div class="screen-lines">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brand-photo reveal" aria-label="Car Services MGH garage photo">
+        <img src="../public/mgh-building.jpg" alt="Car Services MGH garage building" />
+        <div>
+          <p class="eyebrow">Real workshop identity</p>
+          <h2>Παρουσίαση βασισμένη στο πραγματικό brand του συνεργείου.</h2>
+          <p>
+            Η παρουσίαση χρησιμοποιεί το υπάρχον logo, το banner και τη φωτογραφία του χώρου,
+            ώστε να δείχνει σαν κομμάτι της ίδιας ιστοσελίδας.
+          </p>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="section-title reveal">
+          <img class="section-logo" src="../public/mgh-sidebar-logo.svg" alt="" />
+          <p class="eyebrow">What it does</p>
+          <h2>Τι κάνει η ιστοσελίδα</h2>
+          <p>
+            Συνδέει όλα τα βασικά κομμάτια ενός συνεργείου σε μία ροή:
+            καταχώρηση πελάτη, όχημα, εργασία, service, χρεώσεις, invoice και αναφορές.
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article class="reveal">
+            <b>01</b>
+            <h3>Καταχώρηση πελατών & οχημάτων</h3>
+            <p>Φόρμες για customer details, τηλέφωνο, email, VAT, σημειώσεις και πολλαπλά αυτοκίνητα ανά πελάτη.</p>
+          </article>
+          <article class="reveal delay-1">
+            <b>02</b>
+            <h3>Job cards & εργασίες</h3>
+            <p>Δημιουργία job card, ανάθεση μηχανικού, status, εκτιμώμενη ολοκλήρωση και παρακολούθηση προόδου.</p>
+          </article>
+          <article class="reveal delay-2">
+            <b>03</b>
+            <h3>Τιμολόγηση & οικονομικά</h3>
+            <p>Labor, parts, VAT, invoice status, paid/open balances, print invoice και PDF exports.</p>
+          </article>
+          <article class="reveal delay-3">
+            <b>04</b>
+            <h3>Service reminders</h3>
+            <p>Μικρή service card 85×55mm με kilometers για next oil change και service reminder.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="section split">
+        <div class="section-title left reveal">
+          <p class="eyebrow">Core modules</p>
+          <h2>Βασικές λειτουργίες</h2>
+          <p>Κάθε module είναι φτιαγμένο για γρήγορη χρήση στο συνεργείο, με αναζήτηση, φίλτρα και καθαρή πληροφορία.</p>
+        </div>
+        <div class="feature-list reveal delay-1">
+          <button class="feature active" data-feature="dashboard">
+            <span>Dashboard</span>
+            <small>Revenue, open jobs, completed jobs, charts</small>
+          </button>
+          <button class="feature" data-feature="customers">
+            <span>Customers</span>
+            <small>Customer file, vehicles, history, VAT details</small>
+          </button>
+          <button class="feature" data-feature="jobs">
+            <span>Jobs & Work</span>
+            <small>Job cards, progress, completed work, assigned mechanic</small>
+          </button>
+          <button class="feature" data-feature="finance">
+            <span>Invoices & Reports</span>
+            <small>Invoices, paid/open balances, CSV/PDF reports</small>
+          </button>
+          <button class="feature" data-feature="service">
+            <span>Service Card</span>
+            <small>Printable reminder card, PDF download, 85×55mm</small>
+          </button>
+        </div>
+        <div class="feature-preview reveal delay-2" aria-live="polite">
+          <p class="preview-kicker" id="preview-kicker">Dashboard</p>
+          <h3 id="preview-title">Άμεση εικόνα της απόδοσης του συνεργείου</h3>
+          <p id="preview-copy">
+            Το dashboard δείχνει έσοδα ημέρας/μήνα/χρόνου, open jobs, completed jobs, αριθμό πελατών, οχημάτων και invoices.
+          </p>
+          <ul id="preview-points">
+            <li>Revenue cards και στατιστικά</li>
+            <li>Monthly charts για jobs και έσοδα</li>
+            <li>Labor breakdown ανά μηχανικό</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="workflow" class="section">
+        <div class="section-title reveal">
+          <p class="eyebrow">Workflow</p>
+          <h2>Πώς δουλεύει στην πράξη</h2>
+          <p>Η ροή ακολουθεί τον πραγματικό κύκλο εργασίας ενός συνεργείου.</p>
+        </div>
+        <div class="timeline">
+          <div class="step reveal">
+            <span>1</span>
+            <h3>Ο πελάτης μπαίνει στο σύστημα</h3>
+            <p>Καταχωρείται όνομα, τηλέφωνο, email, VAT, σημειώσεις και αυτοκίνητα.</p>
+          </div>
+          <div class="step reveal delay-1">
+            <span>2</span>
+            <h3>Δημιουργείται job card</h3>
+            <p>Επιλέγεται όχημα, kilometers, μηχανικός, πρόβλημα και estimated completion.</p>
+          </div>
+          <div class="step reveal delay-2">
+            <span>3</span>
+            <h3>Το Work page παρακολουθεί την πρόοδο</h3>
+            <p>Τα ενεργά jobs ταξινομούνται με ETA, overdue ένδειξη και status.</p>
+          </div>
+          <div class="step reveal delay-3">
+            <span>4</span>
+            <h3>Προστίθενται labor & parts</h3>
+            <p>Υπολογίζονται ώρες, rates, parts και totals με καθαρή ανάλυση.</p>
+          </div>
+          <div class="step reveal delay-4">
+            <span>5</span>
+            <h3>Παράγεται invoice και service card</h3>
+            <p>Το συνεργείο τυπώνει invoice ή PDF και δίνει service reminder card στον πελάτη.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="modules" class="section">
+        <div class="section-title reveal">
+          <p class="eyebrow">Module map</p>
+          <h2>Τι περιλαμβάνει</h2>
+        </div>
+        <div class="module-grid">
+          <article class="reveal">
+            <h3>Customers</h3>
+            <p>Customer records, contact info, VAT, notes, vehicle badges and customer history.</p>
+          </article>
+          <article class="reveal delay-1">
+            <h3>Vehicles</h3>
+            <p>License plate, VIN, brand, model, year, kilometers, engine type, fuel type and color.</p>
+          </article>
+          <article class="reveal delay-2">
+            <h3>Jobs</h3>
+            <p>Create work orders, assign mechanics, track status, ETA, service checklist and job history.</p>
+          </article>
+          <article class="reveal delay-3">
+            <h3>Work</h3>
+            <p>Operational view for in-progress and completed jobs with counts, overdue alerts and quick job creation.</p>
+          </article>
+          <article class="reveal">
+            <h3>Invoices</h3>
+            <p>Search, sort, print, PDF, paid/open status and totals with VAT support.</p>
+          </article>
+          <article class="reveal delay-1">
+            <h3>Reports</h3>
+            <p>Workshop load, monthly revenue, top customers, invoice CSV and report PDF exports.</p>
+          </article>
+          <article class="reveal delay-2">
+            <h3>Service Card</h3>
+            <p>Generate small 85×55mm service reminder cards with kilometers and PDF/print buttons.</p>
+          </article>
+          <article class="reveal delay-3">
+            <h3>Settings</h3>
+            <p>Workshop identity, VAT defaults, roles, users and labor rates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section closing reveal">
+        <p class="eyebrow">Result</p>
+        <h2>Ένα πρακτικό εργαλείο για να δουλεύει το συνεργείο πιο γρήγορα και πιο οργανωμένα.</h2>
+        <p>
+          Η εφαρμογή μειώνει χαρτιά, συγκεντρώνει ιστορικό πελατών/οχημάτων, κάνει την πρόοδο των εργασιών ορατή
+          και βοηθά στην επαγγελματική παράδοση invoice και service reminder στον πελάτη.
+        </p>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>

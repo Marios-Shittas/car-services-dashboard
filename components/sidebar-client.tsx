@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Car, ClipboardCheck, ClipboardList, FileText, Home, LineChart, Menu, PanelLeftClose, PanelLeftOpen, Settings, Users, Wrench, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -119,7 +120,7 @@ export function SidebarClient({ user }: SidebarClientProps) {
         <div className={cn("rounded-lg border border-border bg-background p-3 lg:mt-auto", !open && "lg:border-0 lg:bg-transparent lg:p-0")}>
           <div className={cn(!open && "lg:hidden")}>
             <div className="mb-3 flex justify-center">
-              <img src="/mgh-sidebar-logo.svg" alt="Car Services MGH" className="h-24 w-24 rounded-full object-contain shadow-lg shadow-slate-950/15" />
+              <Image src="/mgh-sidebar-logo.svg" alt="Car Services MGH" width={96} height={96} className="h-24 w-24 rounded-full object-contain shadow-lg shadow-slate-950/15" />
             </div>
             <p className="text-sm font-semibold">{user?.name}</p>
             <p className="truncate text-xs text-muted-foreground">{user?.email}</p>
